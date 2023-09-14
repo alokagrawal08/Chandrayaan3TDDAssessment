@@ -26,6 +26,9 @@ public class LunarCraftControl {
             case 'r':
                 turnRight();
                 break;
+            case 'l':
+                turnLeft();
+                break;
         }
     }
 
@@ -91,15 +94,30 @@ public class LunarCraftControl {
                 break;
         }
     }
-
+    public void turnLeft(){
+        switch (direction) {
+            case 'N':
+                direction = 'W';
+                break;
+            case 'S':
+                direction = 'E';
+                break;
+            case 'E':
+                direction = 'N';
+                break;
+            case 'W':
+                direction = 'S';
+                break;
+        }
+    }
 
     public String getPositionAndDirection() {
         return "(" + x + ", " + y + ", " + z + ") - " + direction;
 }
     public static void main(String[] args) {
-        LunarCraftControl chandrayaan3=new LunarCraftControl(1,1,-1,'N');
+        LunarCraftControl chandrayaan3=new LunarCraftControl(0,1,-1,'N');
         System.out.println("Initial Position: " + chandrayaan3.getPositionAndDirection());
-        char[] commands={'r'};
+        char[] commands={'l'};
         chandrayaan3.implementCommands(commands);
         System.out.println("Final Position: " + chandrayaan3.getPositionAndDirection());
         }
