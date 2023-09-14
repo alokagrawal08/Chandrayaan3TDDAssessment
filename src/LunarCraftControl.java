@@ -171,9 +171,9 @@ public class LunarCraftControl {
         return "(" + x + ", " + y + ", " + z + ") - " + direction;
 }
     public static void main(String[] args) {
-        LunarCraftControl chandrayaan3=new LunarCraftControl(-3,-1,-2,'W');
+        LunarCraftControl chandrayaan3=new LunarCraftControl(-1,2,0,'S');
         System.out.println("Initial Position: " + chandrayaan3.getPositionAndDirection());
-        char[] commands={'f','f','f','l','l','l'};
+        char[] commands={'u','f','l','d'};
         chandrayaan3.implementCommands(commands);
         System.out.println("Final Position: " + chandrayaan3.getPositionAndDirection());
         }
