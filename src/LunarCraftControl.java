@@ -33,6 +33,9 @@ public class LunarCraftControl {
             case 'u':
                 turnUpward();
                 break;
+            case 'd':
+                turnDownward();
+                break;
         }
     }
 
@@ -83,7 +86,7 @@ public class LunarCraftControl {
     }
 
    public void turnRight() {
-       if (direction == 'U') {
+       if (direction == 'U'||direction == 'D') {
            switch (previous_direction) {
                case 'N':
                    direction = 'E';
@@ -117,7 +120,7 @@ public class LunarCraftControl {
        }
    }
     public void turnLeft() {
-        if (direction == 'U') {
+        if (direction == 'U'||direction == 'D') {
             switch (previous_direction) {
                 case 'N':
                     direction = 'W';
@@ -152,19 +155,25 @@ public class LunarCraftControl {
 
     public void turnUpward() {
         previous_direction=direction;
-        if (direction == 'N' || direction == 'S'||direction == 'E'||direction == 'U') {
+        if (direction == 'N' || direction == 'S'||direction == 'E'||direction == 'W') {
             direction = 'U';
         }
+    }
 
+    public void turnDownward() {
+        previous_direction=direction;
+        if (direction == 'N' || direction == 'S'||direction == 'E'||direction == 'W') {
+            direction = 'D';
+        }
     }
 
     public String getPositionAndDirection() {
         return "(" + x + ", " + y + ", " + z + ") - " + direction;
 }
     public static void main(String[] args) {
-        LunarCraftControl chandrayaan3=new LunarCraftControl(0,0,0,'N');
+        LunarCraftControl chandrayaan3=new LunarCraftControl(1,1,1,'W');
         System.out.println("Initial Position: " + chandrayaan3.getPositionAndDirection());
-        char[] commands={'u'};
+        char[] commands={'d'};
         chandrayaan3.implementCommands(commands);
         System.out.println("Final Position: " + chandrayaan3.getPositionAndDirection());
         }
