@@ -10,4 +10,10 @@ class LunarCraftControlTest {
         Assertions.assertEquals("(0, 0, 0) - N", Chandrayaan3.getPositionAndDirection());
     }
 
+    @Test
+    public void testForwardMovement() {
+        LunarCraftControl Chandrayaan3 = new LunarCraftControl(0,0,0,'N');
+        Chandrayaan3.implementCommands(new char[]{'f'});
+        Assertions.assertEquals("(0, 1, 0) - N", Chandrayaan3.getPositionAndDirection());
+    }
 }
