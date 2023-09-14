@@ -1,4 +1,3 @@
-
 public class LunarCraftControl {
     private int x,y,z;
     char direction;
@@ -171,9 +170,9 @@ public class LunarCraftControl {
         return "(" + x + ", " + y + ", " + z + ") - " + direction;
 }
     public static void main(String[] args) {
-        LunarCraftControl chandrayaan3=new LunarCraftControl(-1,2,0,'S');
+        LunarCraftControl chandrayaan3=new LunarCraftControl(0,0,0,'N');
         System.out.println("Initial Position: " + chandrayaan3.getPositionAndDirection());
-        char[] commands={'u','f','l','d'};
+        char[] commands={'f','r','u','b','l'};
         chandrayaan3.implementCommands(commands);
         System.out.println("Final Position: " + chandrayaan3.getPositionAndDirection());
         }
