@@ -52,4 +52,11 @@ class LunarCraftControlTest {
         Assertions.assertEquals("(1, 1, 1) - D", Chandrayaan3.getPositionAndDirection());
     }
 
+    @Test
+    public void testGivenCommands() {
+        LunarCraftControl Chandrayaan3 = new LunarCraftControl(0,0,0,'N');
+        Chandrayaan3.implementCommands(new char[]{'f','r','u','b','l'});
+        Assertions.assertEquals("(0, 1, -1) - N", Chandrayaan3.getPositionAndDirection());
+    }
+
 }
